@@ -21,4 +21,16 @@ public class ApiResponse {
     @JoinColumn(name = "interaction_id")
     private UserInteractionsWithVirtualAssistant userinteractions;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser(){
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }

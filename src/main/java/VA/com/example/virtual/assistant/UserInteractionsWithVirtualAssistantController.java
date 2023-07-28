@@ -9,33 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/users")
+@RequestMapping(path = "/usersinteractions")
 public class UserInteractionsWithVirtualAssistantController {
 
     @Autowired
     private UserInteractionsWithVirtualAssistantRepository userInteractionsWithVirtualAssistantRepository;
 
-    @GetMapping(path = "/{usersId}")
+    @GetMapping(path = "/{usersinteractionsId}")
     public Optional<UserInteractionsWithVirtualAssistant> getUserInteractionsById(
             @PathVariable int userinteractionsId) {
         return userInteractionsWithVirtualAssistantRepository.findById(userinteractionsId);
     }
 
 }
-
-// @PostMapping("/interactions")
-// public UserInteractionsWithVirtualAssistant createInteraction(@RequestBody
-// UserInteractionsWithVirtualAssistant interaction) {
-// // Here, the interaction object is automatically created from the JSON in the
-// request body,
-// // and its fields are set to the values specified in the JSON.
-// // So there's no need to manually call new
-// UserInteractionsWithVirtualAssistant() or
-// // the setter methods.
-
-// // Save the interaction to the database
-// userInteractionRepository.save(interaction);
-
-// // Return the saved interaction
-// return interaction;
-// }

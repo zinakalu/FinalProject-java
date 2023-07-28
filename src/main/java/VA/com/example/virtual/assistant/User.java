@@ -37,9 +37,16 @@ public class User {
     @JsonIgnore
     private Set<UserInteractionsWithVirtualAssistant> userinteractions;
 
-    // @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade =
-    // Cascadetype.ALL, orphanRemoval = true)
-    // private Set<ApiResponse>
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ApiResponse> apiResponses;
+
+    public Set<ApiResponse> getApiResponses() {
+        return this.apiResponses;
+    }
+
+    public void setApiResponses(Set<ApiResponse> apiResponses) {
+        this.apiResponses = apiResponses;
+    }
 
     public User(Integer id, String username, String email, String password) {
         this.id = id;
